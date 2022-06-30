@@ -14,7 +14,10 @@ type AsProp<C extends React.ElementType> = {
 };
 
 type PropsToOmit<C extends React.ElementType, P> = keyof (AsProp<C> & P);
-type PropsWithAs<C extends React.ElementType,Props>=Props&AsProp<C>;
+type PropsWithAs<
+    C extends React.ElementType,
+    Props = {}
+> = React.PropsWithChildren<Props & AsProp<C>>;
 
 type PolymorphicComponentProps<
     C extends React.ElementType,

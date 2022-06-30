@@ -22,7 +22,7 @@ type PropsWithAs<
 type PolymorphicComponentProps<
     C extends React.ElementType,
     Props = {}
-> = React.PropsWithChildren<Props & AsProp<C>> &
+> = PropsWithAs<C,Props> &
     Omit<React.ComponentPropsWithRef<C>, PropsToOmit<C, Props>>;
 
 type TextProps = { color?: Rainbow | 'black' };
